@@ -4,8 +4,10 @@ var category = {
       event.preventDefault();
       category.show_create_category_modal();
     });
-    $('#category_select').select2({
-      theme: 'bootstrap'
+    $('.category_select').each(function () {
+      $(this).select2({
+        theme: 'bootstrap'
+      });
     });
     $('#btn-save').click(function (event) {
       event.preventDefault();
@@ -22,6 +24,12 @@ var category = {
       && $('#notice').html() !== '') {
       alert($('#notice').html());
     }
+    $('.btn-edit-category').each(function () {
+      $(this).on('click', function (event) {
+        event.preventDefault();
+        category.show_modal_edit($(this));
+      });
+    });
   },
   
   show_create_category_modal: function () {
@@ -57,6 +65,17 @@ var category = {
         $('.show_sub_category').each(function () {
           category.show_sub_category($(this));
         });
+        $('.btn-edit-category').each(function () {
+          $(this).on('click', function (event) {
+            event.preventDefault();
+            category.show_modal_edit($(this));
+          });
+        });
+        $('.category_select').each(function () {
+          $(this).select2({
+            theme: 'bootstrap'
+          });
+        });
       }, 'html');
   },
   
@@ -73,7 +92,29 @@ var category = {
         $('#sub_category_' + id).css('display', 'none');
       }
     });
+  },
+  
+  show_modal_edit: function (obj) {
+    var id = $(obj).attr('id');
+    $('#md-edit-category-' + id).modal();
+    $('#btn-save-' + id).click(function (event) {
+      event.preventDefault();
+      var category = {};
+      category.name = $('#name-' + id).val();
+      category.parent_id = $('#category_select_' + id).val();
+      $.ajax({
+        url: I18n.t('js.url_admin_category') + id,
+        type: 'PUT',
+        data: {category: category},
+        success: function (data, status) {
+          if (data === 'true') {
+            location.reload();
+          } else {
+            alert(I18n.t('js.category.save_fail'));
+          }
+        },
+        dataType: 'text'
+      })
+    })
   }
 };
-
-category.initialize();

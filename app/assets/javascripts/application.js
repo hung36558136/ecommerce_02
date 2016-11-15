@@ -24,4 +24,4 @@
 //= require jquery.ui.nestedSortable
 //= require sortable_tree/initializer
 //= require utils
-//= require_tree .
+//= require cable

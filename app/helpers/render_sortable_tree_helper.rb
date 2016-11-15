@@ -3,7 +3,7 @@ module RenderSortableTreeHelper
     class << self
       attr_accessor :h, :options
 
-      def render_node(h, options)
+      def render_node h, options
         @h, @options = h, options
         node = options[:node]
         html = "<li data-node-id='#{node.id}'><div class='item'>"
@@ -22,15 +22,15 @@ module RenderSortableTreeHelper
           id: node)
         title_field = options[:title]
         "<span class='name_category'>
-          #{h.link_to(node.send(title_field), url)}</span>"
+          #{node.send(title_field)}</span>"
       end
 
       def controls
         node = options[:node]
-        edit_path = h.url_for(controller: options[:klass].pluralize,
-          action: :edit, id: node)
         destroy_path = h.url_for(controller: options[:klass].pluralize,
           action: :destroy, id: node)
+        view = ActionView::Base.new ActionController::Base.view_paths
+        view.extend ApplicationHelper
         "<div class='controls'>
           <table>
             <tr class='action_category_control'>
@@ -43,6 +43,8 @@ module RenderSortableTreeHelper
               </td>
             </tr>
           </table>
+          #{view.render partial: "admin/categories/edit",
+            locals: {category: node}}
         </div>"
       end
 

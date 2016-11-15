@@ -21,6 +21,15 @@ class Admin::CategoriesController < ApplicationController
     end
   end
 
+  def update
+    @category = Category.find_by id: params[:id]
+    if @category.present? && @category.update_attributes(category_params)
+      render plain: t(".success")
+    else
+      render plain: t(".fail")
+    end
+  end
+
   def destroy
     if params[:id]
       if Category.delete_category_by_id params[:id]

@@ -19,7 +19,7 @@
  *= require tree
  *= require sortable_tree
  *= require nested_options
- *= require_tree .
+ *= require custom
  */
 
 html {
