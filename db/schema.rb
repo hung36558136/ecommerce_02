@@ -16,6 +16,14 @@ ActiveRecord::Schema.define(version: 20161114075050) do
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "lft",                        null: false
+    t.integer  "rgt",                        null: false
+    t.integer  "depth",          default: 0, null: false
+    t.integer  "children_count", default: 0, null: false
+    t.integer  "parent_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string "name"
     t.integer "lft", null: false
     t.integer "rgt", null: false

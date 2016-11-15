@@ -1,32 +1,3 @@
-<table class="table-hover table-bordered tbl-categories">
-  <thead class="header">
-    <tr>
-      <td class="header-name"><%= t ".name" %></td>
-      <td class="header-total"><%= t ".total" %></td>
-      <td class="header-action"><%= t ".action" %></td>
-      <td class="header-check-all">
-        <input type="checkbox" id="cb-check-all">
-      </td>
-    </tr>
-  </thead>
-  <tbody id="content-list-category">
-    <% categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= category.products.length %></td>
-        <td>
-          <button><%= t ".delete" %></button>
-          <button><%= t ".edit" %></button>
-        </td>
-        <td>
-          <input type="checkbox" value="<%= category.id %>"
-            id="<%= category.id %>" name="check-delete-category">
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<div class="category-pagination">
-  <%= paginate categories %>
-</div>
+<ul class="ul-list-category">
+  <%= sortable_tree categories, {id: :id, title: :name} %>
+</ul>

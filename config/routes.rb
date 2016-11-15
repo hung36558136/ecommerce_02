@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root "managers#index"
     resources :managers, :categories, :users
+    resource :categories
   end
 end

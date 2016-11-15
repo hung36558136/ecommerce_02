@@ -12,38 +12,15 @@
   width: 190px;
 }
 
-.tbl-categories {
-  width: 75%;
-  margin: auto;
-}
-
-.header-name {
-  width: 60%;
-}
-
-.action-category {
-  width: 80%;
-  display: table;
-  margin: auto;
-  margin-bottom: 20px;
-}
-
 .btn-create-category {
-  display: table;
-  margin: auto;
-  margin-left: 40px;
   float: left;
-}
-
-.category-pagination {
-  margin: auto;
-  display: table;
+  margin-left: 47px;
 }
 
 #tf-search-category {
   width: 60%;
   float: left;
-  margin-left: 40px;
+  margin-left: 20px;
 }
 
 .btn-search {
@@ -52,4 +29,41 @@
 
 .header {
   text-align: center;
+}
+
+.controls {
+  float: right;
+}
+
+.list-category {
+  width: 88%;
+}
+
+.ul-list-category {
+  list-style-type: none;
+  margin-top: 20px;
+}
+
+.nested_set {
+  list-style-type: none;
+}
+
+.name_category {
+  font-size: 18px;
+}
+
+.edit, .delete {
+  font-size: 16px;
+}
+
+.sub_category {
+  display: none;
+}
+
+.notice {
+  display: none;
+}
+
+.action_category_control td {
+  padding-right: 30px;
 }

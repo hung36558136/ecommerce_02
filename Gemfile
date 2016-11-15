@@ -7,6 +7,7 @@ gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.2"
 gem "jquery-rails"
+gem "jquery-ui-rails"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "i18n-js", ">= 3.0.0.rc11"
@@ -19,6 +20,7 @@ gem "devise"
 gem "awesome_nested_set"
 gem "paranoia", "~> 2.2"
 gem "kaminari"
+gem "the_sortable_tree", "~> 2.5.0"
 
 group :development, :test do
   gem "byebug", platform: :mri
