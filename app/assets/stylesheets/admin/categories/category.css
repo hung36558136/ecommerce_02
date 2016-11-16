@@ -1,8 +1,3 @@
-.form-create {
-  display: table;
-  margin: auto;
-}
-
 .lbl_category_select {
   padding: 0;
   padding-top: 6px;
@@ -12,44 +7,47 @@
   width: 190px;
 }
 
-.tbl-categories {
-  width: 75%;
-  margin: auto;
-}
-
-.header-name {
-  width: 60%;
-}
-
-.action-category {
-  width: 80%;
-  display: table;
-  margin: auto;
-  margin-bottom: 20px;
-}
-
 .btn-create-category {
-  display: table;
-  margin: auto;
-  margin-left: 40px;
   float: left;
-}
-
-.category-pagination {
-  margin: auto;
-  display: table;
+  margin-left: 47px;
 }
 
 #tf-search-category {
   width: 60%;
   float: left;
-  margin-left: 40px;
-}
-
-.btn-search {
   margin-left: 20px;
 }
 
 .header {
   text-align: center;
+}
+
+.controls {
+  float: right;
+}
+
+.list-category {
+  width: 88%;
+}
+
+.ul-list-category {
+  padding-top: 20px;
+  clear: both;
+  list-style-type: none;
+}
+
+.nested_set {
+  list-style-type: none;
+}
+
+.name_category {
+  font-size: 14px;
+}
+
+.sub_category {
+  display: none;
+}
+
+.action_category_control td {
+  padding-right: 30px;
 }

@@ -1,3 +1,5 @@
 category:
   perpage: 10
 index_page: "1"
+user:
+  perpage: 10

@@ -21,3 +21,17 @@
   background-color: lightgray;
   color: black;
 }
+
+.form-create {
+  display: table;
+  margin: auto;
+}
+
+.btn-search {
+  float: left;
+  margin-left: 20px;
+}
+
+.notice {
+  display: none;
+}

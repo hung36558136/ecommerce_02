@@ -10,27 +10,94 @@ en:
   admin:
     index:
       category: "Category"
+      user: "User"
     categories:
       index:
         create: "Create"
+        delete: "Delete"
         header_modal: "Create category"
         parent_category: "Parent category"
         cancel: "Cancel"
         save: "Save"
         search: "Search"
         placeholder_category: "Enter category name..."
+        name: "Name"
+      edit:
+        cancel: "Cancel"
+        save: "Save"
+        header_modal: "Update category"
+        parent_category: "Parent category"
+        name: "Name"
+        none: "None"
       list:
-        delete: "Delete"
-        edit: "Edit"
         name: "Category name"
         action: "Action"
         total: "Total product"
+      detail:
+        edit: "Edit"
+        delete: "Delete"
+        confirm_message: "Are you sure?"
       create:
         success: "true"
         fail: "false"
+      update:
+        success: "true"
+        fail: "false"
+      destroy:
+        success: "Delete successfully"
+        fail: "Delete failed"
       category_select:
         none: "None"
+    users:
+      index:
+        listuser: "List users"
+        search: "Search"
+        placeholder_user: "Enter email or name"
+        userid: "User ID"
+        username: "Name"
+        signupdate: "Signup date"
+        email: "Email"
+      users:
+        edit: "Edit"
+        view: "View"
+        profile: "Profile"
+        avatar: "Avatar:"
+        firstname: "First name:"
+        lastname: "Last name:"
+        email: "Email:"
+        address: "Address:"
+        cancel: "Cancel"
+        update: "Update"
+        linkavatar: "Link avatar:"
   js:
+    bad_request: "Bad request!"
     url_admin_category: "/admin/categories/"
     category:
       notice_blank: "Category name can not blank!"
+      confirm_delete: "Are you sure you want to delete this category?"
+      message_result_success: " category deleted."
+      message_result_fail: " category not deleted."
+      check_delete: "You have not selected category."
+      save_fail: "Can not save category"
+  devise:
+    sessions:
+      new:
+        login: "Log in"
+    registrations:
+      new:
+        signup: "Sign up"
+      edit:
+        password_notice: " (leave blank if you don't want to change it)"
+        minimum: " characters minimum)"
+        current_password_notice:
+          " (we need your current password to confirm your changes)"
+        symbol: "("
+        watting: "Currently waiting confirmation for: "
+    shared:
+      links:
+        forgot: "Forgot your password?"
+        signup: "Sign up"
+        not_receive_confirmation: "Didn't receive confirmation instructions?"
+        not_receive_unlock: "Didn't receive unlock instructions?"
+        signin_with: "Sign in with #{OmniAuth::Utils.camelize(provider)}"
+        login: "Log in"

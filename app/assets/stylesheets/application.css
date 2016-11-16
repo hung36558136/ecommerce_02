@@ -16,7 +16,10 @@
  *= require bootstrapValidator.min
  *= require select2
  *= require select2-bootstrap
- *= require_tree .
+ *= require tree
+ *= require sortable_tree
+ *= require nested_options
+ *= require custom
  */
 
 html {

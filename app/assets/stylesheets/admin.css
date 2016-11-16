@@ -1,0 +1,22 @@
+/*
+*= require_self
+*= require font-awesome
+*= require _bootstrap
+*= require bootstrapValidator.min
+*= require select2
+*= require select2-bootstrap
+*= require tree
+*= require sortable_tree
+*= require nested_options
+*= require_tree ./admin
+*= require custom
+*/
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  padding-top: 70px;
+}
