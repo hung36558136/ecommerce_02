@@ -1,0 +1,10 @@
+<tr>
+  <td><%= "-" * category.depth << " " << category.name %></td>
+  <td><%= category.products.length %></td>
+  <td>
+    <button class="btn-delete-category" id="<%= category.id %>">
+      <%= t ".delete" %>
+    </button>
+    <button><%= t ".edit" %></button>
+  </td>
+</tr>
