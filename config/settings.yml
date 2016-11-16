@@ -3,3 +3,5 @@ category:
 index_page: "1"
 user:
   perpage: 10
+manu:
+  perpage: 10

@@ -17,4 +17,6 @@
 
 $(document).on('turbolinks:load', function () {
   category.initialize();
+  user.initialize();
+  manufacturer.initialize();
 });

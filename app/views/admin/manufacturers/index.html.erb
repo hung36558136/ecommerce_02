@@ -1,0 +1,63 @@
+<span id="notice" class="notice"><%= notice %></span>
+<button type="button" class="btn btn-info btn-add-manu">
+  <%= t ".add" %>
+</button>
+<div class="action-manu">
+  <%= form_tag admin_manufacturers_path, method: :get, id: "search-form" do %>
+    <%= text_field_tag :search, params[:search], class: "form-control",
+      placeholder: (t ".placeholder_manufacturer"),
+        id: "tf-search-manufacturer" %>
+    <%= submit_tag t(".search"), class: "btn btn-default btn-search",
+      id: "btn-search-manufacturer"%>
+  <% end %>
+</div>
+<h1 class="list_manufacturer"><%= t ".listmanufacturer" %></h1>
+<div class="col-md-12">
+  <table class="table table table-hover text-center">
+    <tr class="table-title">
+      <th class="text-center"><%= t ".index" %></th>
+      <th class="text-center"><%= t ".name" %></th>
+      <th class="text-center"><%= t ".create_at" %></th>
+      <th class="text-center"></th>
+      <th class="text-center"></th>
+    </tr>
+    <%= render "manufacturer" %>
+  </table>
+  <%= paginate @manufacturers %>
+</div>
+<%= form_tag admin_manufacturers_path , method: :post,
+  id: "add-manu-form" do %>
+  <div class="modal fade" id="manu-modal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+          <h4>
+            <span class="glyphicon glyphicon-lock"></span>
+            <%= t ".manu" %>
+          </h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div>
+              <label class="view-user-title">
+                <span class="glyphicon glyphicon-user"></span>
+                <%= t ".name" %>
+              </label>
+              <%= text_field_tag :name, params[:name],
+                class: "form-control manu-name" %>
+            </div>
+            <%= submit_tag t(".add"), class: "btn btn-success btn-block"%>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left"
+            data-dismiss="modal">
+            <%= t ".cancel" %>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

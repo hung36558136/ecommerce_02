@@ -5,3 +5,73 @@
 .fields{
   margin-bottom: 10px;
 }
+
+.modal-header, h4, .close {
+  background-color: #5cb85c;
+  color:white !important;
+  text-align: center;
+  font-size: 30px;
+  padding: 13px 50px;
+}
+
+.modal-footer {
+  background-color: #f9f9f9;
+}
+
+.model-body {
+  padding:40px 50px;
+}
+
+.avatar{
+  width: 200px;
+  height: 200px;
+}
+
+#tf-search-user{
+  width: 250px;
+  display: inline-block;
+  margin-left: 200px;
+}
+
+.list_user{
+  margin-top: 100px;
+}
+
+#notice{
+  display: none;
+}
+
+.btn-delete-user{
+  display: none;
+}
+
+.list_manufacturer{
+  margin-top: 100px;
+}
+
+.btn-delete-manufacturer{
+  display: none;
+}
+
+#tf-search-manufacturer{
+  width: 250px;
+  display: inline-block;
+  margin-left: 200px;
+}
+
+#btn-search-manufacturer{
+  float: right;
+  margin-right: 320px;
+}
+
+.btn-add-manu{
+  margin-left: 20px;
+}
+
+.action-manu{
+  margin-top: 20px;
+}
+
+.manu-name{
+  margin-bottom: 20px;
+}

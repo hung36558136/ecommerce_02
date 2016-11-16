@@ -1,3 +1,4 @@
+<span id="notice" class="notice"><%= notice %></span>
 <div class="action-user">
   <%= form_tag admin_users_path, method: :get, id: "search-form" do %>
     <%= text_field_tag :search, params[:search], class: "form-control",
@@ -6,16 +7,15 @@
       id: "btn-search-user"%>
   <% end %>
 </div>
-<h1><%= t ".listuser" %></h1>
+<h1 class="list_user"><%= t ".listuser" %></h1>
 <div class="col-md-12">
   <table class="table table table-hover text-center">
     <tr class="table-title">
-      <th class="text-center"><%= t ".userid" %></th>
+      <th class="text-center"><%= t ".index" %></th>
       <th class="text-center"><%= t ".firstname" %></th>
       <th class="text-center"><%= t ".lastname" %></th>
       <th class="text-center"><%= t ".email" %></th>
       <th class="text-center"><%= t ".signupdate" %></th>
-      <th class="text-center"></th>
       <th class="text-center"></th>
       <th class="text-center"></th>
     </tr>
