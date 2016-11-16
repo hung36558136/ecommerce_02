@@ -10,6 +10,7 @@ en:
   admin:
     index:
       category: "Category"
+      user: "User"
     categories:
       index:
         create: "Create"
@@ -58,6 +59,16 @@ en:
         email: "Email"
       users:
         edit: "Edit"
+        view: "View"
+        profile: "Profile"
+        avatar: "Avatar:"
+        firstname: "First name:"
+        lastname: "Last name:"
+        email: "Email:"
+        address: "Address:"
+        cancel: "Cancel"
+        update: "Update"
+        linkavatar: "Link avatar:"
   js:
     bad_request: "Bad request!"
     url_admin_category: "/admin/categories/"
