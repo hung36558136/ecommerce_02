@@ -33,14 +33,19 @@ var utils = {
     })
   },
   
-  url_param: function (name) {
-    var results = new RegExp('[\?&]' + name + '=([^&#]*)')
-      .exec(window.location.href);
-    if (results == null) {
-      return null;
-    } else {
-      return results[1] || 0;
+  url_param: function (name, url) {
+    if (!url) {
+      url = window.location.href;
     }
+    url = decodeURIComponent(url);
+    var hashes = url.slice(url.indexOf('?') + 1).split('&');
+    for (var i = 0; i < hashes.length; i++) {
+      hash = hashes[i].split('=');
+      if (hash[0] == name) {
+        return hash[1];
+      }
+    }
+    return "";
   },
   
   get_path: function () {

@@ -82,11 +82,26 @@ en:
         category: "Category"
         manufacturer: "Manufacturer"
         name: "Name"
+        price: "Price"
+        min: "Min price"
+        max: "Max price"
+        all: "All"
         specification: "Specifications"
         add_specification: "Add specification"
         create: "Create"
         delete: "Delete"
+        edit: "Edit"
         keep_save: "Keep the window created"
+      list:
+        category: "Category"
+        product_name: "Product name"
+        manufacturer: "Manufacturer"
+        action: "Action"
+        price: "Price"
+        total_view: "Total view"
+      detail:
+        edit: "Edit"
+        delete: "Delete"
   validate:
     product:
       size:
@@ -106,6 +121,11 @@ en:
       message_min_field: "Must have at least one specification!"
       message_blank_field: "Specification can not be blank!"
       message_blank_name: "Name can not be blank!"
+      message_blank_price: "Price can not be blank!"
+      message_price: "Price not in the correct format"
+      message_min_max_price: "The max price must be greater than the min price"
+      message_min_price: "The min price mest be greater than 0"
+      message_max_price: "The max price mest be greater than 0"
   devise:
     sessions:
       new:

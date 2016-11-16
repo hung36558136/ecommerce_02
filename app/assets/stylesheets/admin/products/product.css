@@ -1,6 +1,6 @@
 .btn-create-product {
   float: left;
-  margin-left: 47px;
+  margin-left: 57px;
 }
 
 #tf-search-product {
@@ -16,6 +16,7 @@
 .content-advance-search {
   clear: both;
   display: none;
+  margin-top: 20px;
 }
 
 .form-create label {
@@ -37,4 +38,43 @@
 
 .btn-delete-spec {
   float: right;
+}
+
+.header-product-category {
+  width: 150px;
+}
+
+.header-product-name {
+  width: 250px;
+}
+
+.header-product-price {
+  width: 100px;
+}
+
+.header-product-manufacturer {
+  width: 150px;
+}
+
+.action-product {
+  margin-bottom: 20px;
+}
+
+.list-product {
+  display: table;
+  margin: auto;
+}
+
+.pagination-product {
+  display: table;
+  margin: auto;
+}
+
+.form-search-product {
+  display: table;
+  margin: auto;
+}
+
+#category_search, #manufacturer_search, #min-price-search, #max-price-search {
+  width: 200px;
 }

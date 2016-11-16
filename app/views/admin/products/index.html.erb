@@ -17,6 +17,50 @@
       <%= t ".advance_search" %>
     </button>
     <div class="content-advance-search" id="content-advance-search">
+      <form class="form-horizontal form-search-product">
+        <div class="form-group">
+          <label for="category" class="col-sm-4">
+            <%= t ".category" %>
+          </label>
+          <div class="col-sm-8">
+            <%= select_tag :category, options_for_select(
+              nested_set_options(Category) { |category|
+                "#{'-' * category.level} #{category.name}" }),
+              {class: "form-control", id: "category_search",
+                include_blank: t(".all")}
+            %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="manufacturer" class="col-sm-4">
+            <%= t ".manufacturer" %>
+          </label>
+          <div class="col-sm-8">
+            <%= select_tag :manufacturer, options_for_select(
+              @manufacturers.collect { |manufacturer|
+                [manufacturer.name, manufacturer.id] }),
+              {class: "form-control", id: "manufacturer_search",
+                include_blank: t(".all")}
+            %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="min" class="col-sm-4">
+            <%= t ".min" %>
+          </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="min-price-search">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="max" class="col-sm-4">
+            <%= t ".max" %>
+          </label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="max-price-search">
+          </div>
+        </div>
+      </form>
     </div>
   </div>
   <div class="modal fade" id="md-create-product" role="dialog">
@@ -31,6 +75,22 @@
         <div class="modal-body">
           <form class="form-horizontal form-create">
             <div class="form-group">
+              <label for="name" class="col-sm-3">
+                <%= t ".name" %>
+              </label>
+              <div class="col-sm-9">
+                <input type="text" id="name" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="price" class="col-sm-3">
+                <%= t ".price" %>
+              </label>
+              <div class="col-sm-9">
+                <input type="text" id="price" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
               <label for="category_select" class="col-sm-3">
                 <%= t ".category" %>
               </label>
@@ -43,14 +103,6 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="name" class="col-sm-3">
-                <%= t ".name" %>
-              </label>
-              <div class="col-sm-9">
-                <input type="text" id="name" class="form-control">
-              </div>
-            </div>
-            <div class="form-group">
               <label for="manufacturer" class="col-sm-3">
                 <%= t ".manufacturer" %>
               </label>
@@ -58,7 +110,8 @@
                 <%= select_tag :manufacturer, options_for_select(
                   @manufacturers.collect { |manufacturer|
                     [manufacturer.name, manufacturer.id] }),
-                  {class: "manufacturer_select", id: "manufacturer_select"} %>
+                  {class: "manufacturer_select", id: "manufacturer_select"}
+                %>
               </div>
             </div>
             <h3><%= t ".specification" %></h3>
@@ -97,6 +150,7 @@
     </div>
   </div>
   <div class="list-product" id="list-product">
+    <%= render partial: "list", locals: {products: @products} %>
   </div>
 </div>
 

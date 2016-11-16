@@ -1,0 +1,21 @@
+<table class="table-bordered table-hover">
+  <thead>
+    <tr>
+      <td class="header-product-name"><%= t ".product_name" %></td>
+      <td class="header-product-price"><%= t ".price" %></td>
+      <td class="header-product-total-view"><%= t ".total_view" %></td>
+      <td class="header-product-category"><%= t ".category" %></td>
+      <td class="header-product-manufacturer"><%= t ".manufacturer" %></td>
+      <td class="header-product-action"><%= t ".action" %></td>
+      <td><input type="checkbox" id="cb-all-product"></td>
+    </tr>
+  </thead>
+  <tbody id="content-products">
+    <% products.each do |product| %>
+      <%= render partial: "detail", locals: {product: product} %>
+    <% end %>
+  </tbody>
+</table>
+<div class="pagination-product">
+  <%= paginate products %>
+</div>
