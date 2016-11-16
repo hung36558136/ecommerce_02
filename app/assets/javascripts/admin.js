@@ -18,4 +18,7 @@
 $(document).on('turbolinks:load', function () {
   category.initialize();
   user.initialize();
+  product.initialize();
+  $.fn.modal.Constructor.prototype.enforceFocus = function () {
+  };
 });

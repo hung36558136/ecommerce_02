@@ -11,6 +11,7 @@ en:
     index:
       category: "Category"
       user: "User"
+      product: "Product"
     categories:
       index:
         create: "Create"
@@ -69,9 +70,31 @@ en:
         cancel: "Cancel"
         update: "Update"
         linkavatar: "Link avatar:"
+    products:
+      index:
+        create: "Create"
+        search: "Search"
+        advance_search: "Advance search"
+        placeholder_product: "Enter product name..."
+        header_modal: "Create product"
+        save: "Save"
+        cancel: "Cancel"
+        category: "Category"
+        manufacturer: "Manufacturer"
+        name: "Name"
+        specification: "Specifications"
+        add_specification: "Add specification"
+        create: "Create"
+        delete: "Delete"
+        keep_save: "Keep the window created"
+  validate:
+    product:
+      size:
+        specifications: "Must have at least one specification!"
   js:
     bad_request: "Bad request!"
     url_admin_category: "/admin/categories/"
+    url_admin_product: "/admin/products/"
     category:
       notice_blank: "Category name can not blank!"
       confirm_delete: "Are you sure you want to delete this category?"
@@ -79,6 +102,10 @@ en:
       message_result_fail: " category not deleted."
       check_delete: "You have not selected category."
       save_fail: "Can not save category"
+    product:
+      message_min_field: "Must have at least one specification!"
+      message_blank_field: "Specification can not be blank!"
+      message_blank_name: "Name can not be blank!"
   devise:
     sessions:
       new:

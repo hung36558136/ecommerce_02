@@ -10,3 +10,18 @@
     sign_in_count: sign_in_count, last_name: last_name, first_name: first_name,
     address: address)
 end
+
+@manufacturer = Manufacturer.new name: "Dell"
+@manufacturer.save
+@manufacturer = Manufacturer.new name: "HP"
+@manufacturer.save
+@manufacturer = Manufacturer.new name: "Lenovo"
+@manufacturer.save
+@manufacturer = Manufacturer.new name: "Asus"
+@manufacturer.save
+@manufacturer = Manufacturer.new name: "Acer"
+@manufacturer.save
+@manufacturer = Manufacturer.new name: "Apple"
+@manufacturer.save
+@manufacturer = Manufacturer.new name: "Sony"
+@manufacturer.save

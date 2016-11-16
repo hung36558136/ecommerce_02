@@ -3,3 +3,10 @@ category:
 index_page: "1"
 user:
   perpage: 10
+product:
+  specification:
+    - "CPU"
+    - "RAM"
+    - "Storage"
+    - "Screen"
+  min_specification: 2
