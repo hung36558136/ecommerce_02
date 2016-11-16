@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     root "managers#index"
     resources :managers, :categories, :users
     resource :categories
+    resource :users
   end
 end
