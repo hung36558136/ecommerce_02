@@ -3,10 +3,9 @@
 <head>
   <title><%= t("root_title") %></title>
   <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag "application", media: "all",
+  <%= stylesheet_link_tag "admin", media: "all",
     "data-turbolinks-track": "reload" %>
-  <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
-  <%= stylesheet_link_tag "admin/admin" %>
+  <%= javascript_include_tag "admin", "data-turbolinks-track": "reload" %>
 </head>
 <body>
 <div class="container">
@@ -16,7 +15,9 @@
   <div class="content content-application">
     <div class="left-menu">
       <ul class="list-left-menu">
-        <li><%= link_to t(".category"), admin_categories_path,
+        <li><%= link_to t("admin.index.category"), admin_categories_path,
+          class: "list-group-item" %></li>
+        <li><%= link_to t("admin.index.product"), admin_products_path,
           class: "list-group-item" %></li>
       </ul>
     </div>

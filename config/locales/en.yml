@@ -21,6 +21,13 @@ en:
         search: "Search"
         placeholder_category: "Enter category name..."
         name: "Name"
+      edit:
+        cancel: "Cancel"
+        save: "Save"
+        header_modal: "Update category"
+        parent_category: "Parent category"
+        name: "Name"
+        none: "None"
       list:
         name: "Category name"
         action: "Action"
@@ -30,6 +37,9 @@ en:
         delete: "Delete"
         confirm_message: "Are you sure?"
       create:
+        success: "true"
+        fail: "false"
+      update:
         success: "true"
         fail: "false"
       destroy:
