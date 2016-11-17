@@ -1,0 +1,21 @@
+<tr>
+  <td><%= product.name %></td>
+  <td><%= product.price %></td>
+  <td><%= product.total_view %></td>
+  <td><%= product.category.name %></td>
+  <td><%= product.manufacturer.name %></td>
+  <td>
+    <button class="btn btn-default btn-edit-product"
+      id="<%= product.id %>">
+      <%= t ".edit" %>
+    </button>
+    <button class="btn btn-default btn-delete-product"
+      id="<%= product.id %>">
+      <%= t ".delete" %>
+    </button>
+  </td>
+  <td>
+    <input type="checkbox" value="<%= product.id %>"
+      name="cb-delete-product">
+  </td>
+</tr>
