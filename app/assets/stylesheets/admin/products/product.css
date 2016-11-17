@@ -1,6 +1,11 @@
+.btn-delete-products{
+  float: left;
+  margin-left: 15px;
+}
+
 .btn-create-product {
   float: left;
-  margin-left: 57px;
+  margin-left: 20px;
 }
 
 #tf-search-product {
