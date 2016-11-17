@@ -13,8 +13,8 @@ class Product < ApplicationRecord
   validates :price, presence: true,
     numericality: {only_float: true, greater_than: 0}
   
-  scope :with_category_manufacturer, -> () {
-    self.includes :category, :manufacturer
+  scope :with_category_manufacturer_specifications, -> () {
+    self.includes :category, :manufacturer, :specifications
   }
   
   scope :like_name, -> (name) {
@@ -50,16 +50,17 @@ class Product < ApplicationRecord
   
   def init
     self.total_view ||= 0
+    self.price ||= 0.0
   end
   
   class << self
     def find_all
-      self.with_category_manufacturer.all
+      self.with_category_manufacturer_specifications.all
     end
     
     def find_for_advance_search name, category_id, manufacturer_id, min_price,
       max_price
-      self.with_category_manufacturer.like_name(name)
+      self.with_category_manufacturer_specifications.like_name(name)
         .in_category(category_id).in_manufacturer(manufacturer_id)
         .greater_than_price(min_price).smaller_than_price max_price
     end

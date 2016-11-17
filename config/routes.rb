@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     resources :managers, :categories, :users, :products
     resource :users, :categories, :products
   end
+  
+  resources :products
 end

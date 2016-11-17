@@ -20,6 +20,7 @@
  *= require sortable_tree
  *= require nested_options
  *= require custom
+ *= require product
  */
 
 html {

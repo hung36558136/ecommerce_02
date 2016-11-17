@@ -1,0 +1,22 @@
+.product-info {
+  padding-top: 50px;
+  padding-left: 80px;
+  float: left;
+}
+
+.product-price {
+  color: red;
+  font-size: 200%;
+}
+
+.specifications-info{
+  margin-top: 20px;
+  border-radius: 5px;
+  border: solid 1px;
+  word-wrap: break-word;
+  padding: 30px 20px;
+}
+
+.content-product-comment{
+  clear: both;
+}
