@@ -9,6 +9,7 @@
       id="<%= product.id %>">
       <%= t ".edit" %>
     </button>
+    <%= render partial: "edit", locals: {product: product} %>
     <button class="btn btn-default btn-delete-product"
       id="<%= product.id %>">
       <%= t ".delete" %>

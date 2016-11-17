@@ -42,10 +42,17 @@ var product = {
     $('.btn-delete-spec').each(function () {
       $(this).on('click', function (event) {
         event.preventDefault();
-        if ($('.btn-delete-spec').length == 2) {
+        var id = '';
+        if ($(this).attr('id')) {
+          id = '-' + $(this).attr('id');
+        }
+        if ($('button[name=btn-delete-spec' + id + ']').length < 3) {
           alert(I18n.t('js.product.message_min_field'));
           return;
         }
+        var id_specification = $(this).prev().attr('id');
+        var ids_destroy = $('#ids-destroy' + id).val() + id_specification + ',';
+        $('#ids-destroy' + id).val(ids_destroy);
         $(this).parent().parent().remove();
       });
     });
@@ -56,55 +63,86 @@ var product = {
     $('#manufacturer_search').select2({
       theme: 'bootstrap'
     });
+    $('.btn-edit-product').each(function () {
+      $(this).on('click', function (event) {
+        event.preventDefault();
+        product.show_edit_modal($(this));
+      });
+    });
+    $('.btn-add-spec-edit').each(function () {
+      $(this).on('click', function (event) {
+        event.preventDefault();
+        product.on_click_add_specification($(this).attr('id'));
+      })
+    });
+    $('.btn-save-product').each(function () {
+      $(this).on('click', function (event) {
+        event.preventDefault();
+        var id = $(this).attr('id');
+        var product_params = product.build_product_params(id);
+        if (product_params == false) {
+          return;
+        }
+        var specifications = product_params.specifications;
+        var ids_destroy = $('#ids-destroy-' + id).val().split(',');
+        $(ids_destroy).each(function (i) {
+          if (ids_destroy[i] != '') {
+            var specification = {
+              id: ids_destroy[i],
+              _destroy: true
+            };
+            specifications.push(specification);
+          }
+        });
+        $.ajax({
+          url: I18n.t('js.url_admin_product'),
+          data: {product: product_params},
+          type: 'PUT',
+          dataType: 'json',
+          success: function (data, status) {
+            if (data == true) {
+              location.reload();
+            } else {
+              alert(data);
+            }
+          }
+        });
+      });
+    })
   },
   
-  on_click_add_specification: function () {
-    $('#content-spec').append($('#field-spec-create').html());
+  on_click_add_specification: function (id) {
+    if (!id) {
+      id = '';
+    } else {
+      id = '-' + id;
+    }
+    $('#content-spec' + id)
+      .append($('#field-spec-create' + id).html());
+    $('#content-spec' + id).find('.btn-delete-spec').last()
+      .on('click', function (event) {
+        event.preventDefault();
+        if ($('button[name=btn-delete-spec' + id + ']').length < 3) {
+          alert(I18n.t('js.product.message_min_field'));
+          return;
+        }
+        $(this).parent().parent().remove();
+      });
   },
   
   create_product: function () {
-    var product = {};
-    product.name = $('#name').val();
-    if (product.name == '') {
-      alert(I18n.t('js.product.message_blank_name'));
+    var product_params = product.build_product_params();
+    if (product_params == false) {
       return;
     }
-    if ($('#price').val() == '') {
-      alert(I18n.t('js.product.message_blank_price'));
-      return;
-    }
-    product.price = parseFloat($('#price').val());
-    if (isNaN(product.price)) {
-      alert(I18n.t('js.product.message_price'));
-      return;
-    }
-    product.category_id = $('#category_product').val();
-    product.manufacturer_id = $('#manufacturer_select').val();
-    var specifications = [];
-    var spec_name = $('input[name=spec-name]');
-    var spec_value = $('input[name=spec-value]');
-    for (var i = 0; i < $(spec_name).length - 1; i++) {
-      var name = $(spec_name[i]).val();
-      var value = $(spec_value[i]).val();
-      if (name == '' || value == '') {
-        alert(I18n.t('js.product.message_blank_field'));
-        return;
-      }
-      var specification = {
-        name: name,
-        value: value
-      };
-      specifications.push(specification);
-    }
-    product.specifications = specifications;
-    $.post(I18n.t('js.url_admin_product'), {product: product},
+    $.post(I18n.t('js.url_admin_product'), {product: product_params},
       function (data, status) {
         try {
           jQuery.parseJSON(data);
           alert(data);
         } catch (err) {
-          for (var i = 0; i < $(spec_value).length - 1; i++) {
-            $(spec_value[i]).val('');
+          for (var i = 0; i < $('input[name=spec-value]').length - 1; i++) {
+            $('input[name=spec-value]').val('');
           }
           if (!$('#cb_keep_save').is(':checked')) {
             $('#md-create-product').modal('hide');
@@ -112,6 +150,54 @@ var product = {
           $('#content-products').prepend(data);
         }
       }, 'html');
+  },
+  
+  build_product_params: function (id) {
+    var product_params = {};
+    if (id) {
+      product_params.id = id;
+      id = '-' + id;
+    } else {
+      id = '';
+    }
+    product_params.name = $('#name' + id).val();
+    if (product_params.name == '') {
+      alert(I18n.t('js.product.message_blank_name'));
+      return false;
+    }
+    if ($('#price' + id).val() == '') {
+      alert(I18n.t('js.product.message_blank_price'));
+      return false;
+    }
+    product_params.price = parseFloat($('#price' + id).val());
+    if (isNaN(product_params.price)) {
+      alert(I18n.t('js.product.message_price'));
+      return false;
+    }
+    product_params.category_id = $('#category_product' + id).val();
+    product_params.manufacturer_id = $('#manufacturer_select' + id).val();
+    var specifications = [];
+    var spec_name = $('input[name=spec-name' + id + ']');
+    var spec_value = $('input[name=spec-value' + id + ']');
+    for (var i = 0; i < $(spec_name).length - 1; i++) {
+      var name = $(spec_name[i]).val();
+      var value = $(spec_value[i]).val();
+      var id_specification = $(spec_name[i]).attr('id');
+      if (name == '' || value == '') {
+        alert(I18n.t('js.product.message_blank_field'));
+        return false;
+      }
+      var specification = {
+        name: name,
+        value: value
+      };
+      if (id_specification) {
+        specification.id = id_specification;
+      }
+      specifications.push(specification);
+    }
+    product_params.specifications = specifications;
+    return product_params;
   },
   
   search_product: function () {
@@ -157,5 +243,10 @@ var product = {
       function (data, status) {
         $('#list-product').html(data);
       }, 'html');
+  },
+  
+  show_edit_modal: function (obj) {
+    var id = $(obj).attr('id');
+    $('#md-edit_product-' + id).modal();
   }
 };

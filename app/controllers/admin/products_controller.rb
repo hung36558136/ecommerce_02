@@ -1,5 +1,6 @@
 class Admin::ProductsController < ApplicationController
   layout "admin"
+  before_action :load_manufacturer
   
   def index
     if params[:search_params].present?
@@ -12,9 +13,7 @@ class Admin::ProductsController < ApplicationController
         render partial: "list", locals: {products: @products}
         return
       end
-      @manufacturers = Manufacturer.all
     else
-      @manufacturers = Manufacturer.all
       @products = Product.find_all
         .page(params[:page]).per Settings.product.per_page
     end
@@ -22,7 +21,8 @@ class Admin::ProductsController < ApplicationController
   
   def create
     @product = Product.new product_params
-    @product.specifications_attributes = params[:product][:specifications].as_json
+    @product.specifications_attributes = params[:product][:specifications]
+      .as_json
     if @product.save
       render partial: "detail", locals: {product: @product}
     else
@@ -30,9 +30,28 @@ class Admin::ProductsController < ApplicationController
     end
   end
   
+  def update
+    @product = Product.find_by id: params[:product][:id]
+    if @product.present?
+      @product.specifications_attributes = params[:product][:specifications]
+        .as_json
+      if @product.update_attributes product_params
+        render plain: t(".success")
+      else
+        render @product.errors.messages
+      end
+    else
+      render plain: t("js.bad_request")
+    end
+  end
+  
   private
   def product_params
     params.require(:product).permit :name, :price, :category_id,
       :manufacturer_id
+  end
+  
+  def load_manufacturer
+    @manufacturers = Manufacturer.all
   end
 end
