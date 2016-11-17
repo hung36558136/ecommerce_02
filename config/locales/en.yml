@@ -102,6 +102,19 @@ en:
       detail:
         edit: "Edit"
         delete: "Delete"
+      edit:
+        header_modal: "Edit product"
+        name: "Name"
+        price: "Price"
+        category: "Category"
+        manufacturer: "Manufacturer"
+        specification: "Specification"
+        delete: "Delete"
+        add_specification: "Add specification"
+        save: "Save"
+        cancel: "Cancel"
+      update:
+        success: "true"
   validate:
     product:
       size:

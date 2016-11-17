@@ -78,3 +78,7 @@
 #category_search, #manufacturer_search, #min-price-search, #max-price-search {
   width: 200px;
 }
+
+.ids_destroy{
+  display: none;
+}

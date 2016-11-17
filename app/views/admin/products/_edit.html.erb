@@ -1,0 +1,114 @@
+<div class="modal fade" id="md-edit_product-<%= product.id %>" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+        <h4 class="modal-title"><%= t ".header_modal" %></h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal form-create">
+          <div class="form-group">
+            <label for="name" class="col-sm-3">
+              <%= t ".name" %>
+            </label>
+            <div class="col-sm-9">
+              <input type="text" id="name-<%= product.id %>"
+                class="form-control" value="<%= product.name %>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="price" class="col-sm-3">
+              <%= t ".price" %>
+            </label>
+            <div class="col-sm-9">
+              <input type="text" id="price-<%= product.id %>"
+                class="form-control" value="<%= product.price %>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="category_select" class="col-sm-3">
+              <%= t ".category" %>
+            </label>
+            <div class="col-sm-9">
+              <%= select_tag :category, options_for_select(
+                nested_set_options(Category) { |category|
+                  "#{'-' * category.level} #{category.name}" },
+                selected: product.category_id),
+                {class: "category_product",
+                  id: "category_product-#{product.id}"}
+              %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="manufacturer" class="col-sm-3">
+              <%= t ".manufacturer" %>
+            </label>
+            <div class="col-sm-9">
+              <%= select_tag :manufacturer, options_for_select(
+                @manufacturers.collect { |manufacturer|
+                  [manufacturer.name, manufacturer.id] },
+                selected: product.manufacturer_id),
+                {class: "manufacturer_select",
+                  id: "manufacturer_select-#{product.id}"}
+              %>
+            </div>
+          </div>
+          <h3><%= t ".specification" %></h3>
+          <div id="content-spec-<%= product.id %>">
+            <% product.specifications.each do |specification| %>
+              <div class="field-spec">
+                <div class="col-sm-3">
+                  <input type="text" name="spec-name-<%= product.id %>"
+                    id="<%= specification.id %>"
+                    class="form-control" value="<%= specification.name %>">
+                </div>
+                <div class="col-sm-9">
+                  <input type="text" name="spec-value-<%= product.id %>"
+                    class="form-control spec-value"
+                    id="<%= specification.id %>"
+                    value="<%= specification.value %>">
+                  <button class="btn btn-default btn-delete-spec"
+                    name="btn-delete-spec-<%= product.id %>"
+                    id="<%= product.id %>">
+                    <%= t ".delete" %>
+                  </button>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-default btn-add-spec-edit"
+              id="<%= product.id %>">
+              <%= t ".add_specification" %></button>
+            <button type="submit" class="btn btn-default btn-save-product"
+              id="<%= product.id %>">
+              <%= t ".save" %></button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              <%= t ".cancel" %>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<input type="text" class="ids_destroy" id="ids-destroy-<%= product.id %>">
+
+<span class="field-spec-create" id="field-spec-create-<%= product.id %>">
+  <div class="field-spec">
+    <div class="col-sm-3">
+      <input type="text" name="spec-name-<%= product.id %>" class="form-control">
+    </div>
+    <div class="col-sm-9">
+      <input type="text" name="spec-value-<%= product.id %>"
+        class="form-control spec-value">
+      <button class="btn btn-default btn-delete-spec"
+        name="btn-delete-spec-<%= product.id %>" id="<%= product.id %>">
+        <%= t ".delete" %>
+      </button>
+    </div>
+  </div>
+</span>
