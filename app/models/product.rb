@@ -63,6 +63,15 @@ class Product < ApplicationRecord
         .in_category(category_id).in_manufacturer(manufacturer_id)
         .greater_than_price(min_price).smaller_than_price max_price
     end
+    
+    def delete_by_ids ids
+      ids_destroy = [];
+      ids.each do |id|
+        ids_destroy.push(id) unless OrderDetail.exists? product_id: id
+      end
+      self.where(id: ids_destroy).destroy_all
+      ids_destroy
+    end
   end
   
   private

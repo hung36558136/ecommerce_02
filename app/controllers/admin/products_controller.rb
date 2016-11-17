@@ -45,6 +45,15 @@ class Admin::ProductsController < ApplicationController
     end
   end
   
+  def destroy
+    ids = params[:ids]
+    result = Product.delete_by_ids ids
+    res = Hash.new
+    res[:deleted] = result.length
+    res[:not_deleted] = ids.length - result.length
+    render json: res
+  end
+  
   private
   def product_params
     params.require(:product).permit :name, :price, :category_id,

@@ -139,6 +139,10 @@ en:
       message_min_max_price: "The max price must be greater than the min price"
       message_min_price: "The min price mest be greater than 0"
       message_max_price: "The max price mest be greater than 0"
+      check_delete: "Please check product delete!"
+      confirm_delete: "Do you want to delete this?"
+    deleted: "Deleted "
+    not_deleted: "Not deleted "
   devise:
     sessions:
       new:
