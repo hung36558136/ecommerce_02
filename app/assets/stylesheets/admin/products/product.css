@@ -1,0 +1,40 @@
+.btn-create-product {
+  float: left;
+  margin-left: 47px;
+}
+
+#tf-search-product {
+  width: 50%;
+  float: left;
+  margin-left: 20px;
+}
+
+.btn-advance-search {
+  margin-left: 10px;
+}
+
+.content-advance-search {
+  clear: both;
+  display: none;
+}
+
+.form-create label {
+  padding-left: 0px;
+}
+
+.field-spec-create {
+  display: none;
+}
+
+.spec-value {
+  margin-bottom: 5px;
+}
+
+.spec-value {
+  width: 75%;
+  float: left;
+}
+
+.btn-delete-spec {
+  float: right;
+}

@@ -1,0 +1,115 @@
+<span id="notice" class="notice"><%= notice %></span>
+<div class="content-products">
+  <div class="action-product">
+    <button class="btn btn-default btn-create-product" id="btn-create-product">
+      <%= t ".create" %>
+    </button>
+    <form>
+      <input type="text" id="tf-search-product" class="form-control"
+        placeholder="<%= t ".placeholder_product" %>">
+      <button class="btn btn-default btn-search"
+        id="btn-search-product" type="submit">
+        <%= t ".search" %>
+      </button>
+    </form>
+    <button class="btn btn-default btn-advance-search"
+      id="btn-advance-search" type="submit">
+      <%= t ".advance_search" %>
+    </button>
+    <div class="content-advance-search" id="content-advance-search">
+    </div>
+  </div>
+  <div class="modal fade" id="md-create-product" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+          <h4 class="modal-title"><%= t ".header_modal" %></h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal form-create">
+            <div class="form-group">
+              <label for="category_select" class="col-sm-3">
+                <%= t ".category" %>
+              </label>
+              <div class="col-sm-9">
+                <%= select_tag :category, options_for_select(
+                  nested_set_options(Category) { |category|
+                    "#{'-' * category.level} #{category.name}" }),
+                  {class: "category_product", id: "category_product"}
+                %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="name" class="col-sm-3">
+                <%= t ".name" %>
+              </label>
+              <div class="col-sm-9">
+                <input type="text" id="name" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="manufacturer" class="col-sm-3">
+                <%= t ".manufacturer" %>
+              </label>
+              <div class="col-sm-9">
+                <%= select_tag :manufacturer, options_for_select(
+                  @manufacturers.collect { |manufacturer|
+                    [manufacturer.name, manufacturer.id] }),
+                  {class: "manufacturer_select", id: "manufacturer_select"} %>
+              </div>
+            </div>
+            <h3><%= t ".specification" %></h3>
+            <div id="content-spec">
+              <% Settings.product.specification.each do |specification| %>
+                <div class="field-spec">
+                  <div class="col-sm-3">
+                    <input type="text" name="spec-name"
+                      class="form-control" value="<%= specification %>">
+                  </div>
+                  <div class="col-sm-9">
+                    <input type="text" name="spec-value"
+                      class="form-control spec-value">
+                    <button class="btn btn-default btn-delete-spec"
+                      name="btn-delete-spec">
+                      <%= t ".delete" %>
+                    </button>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <div class="modal-footer">
+              <input type="checkbox" id="cb_keep_save">
+              <span><%= t ".keep_save" %></span>
+              <button class="btn btn-default" id="btn-add-spec">
+                <%= t ".add_specification" %></button>
+              <button type="submit" class="btn btn-default" id="btn-create">
+                <%= t ".create" %></button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">
+                <%= t ".cancel" %>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="list-product" id="list-product">
+  </div>
+</div>
+
+<span class="field-spec-create" id="field-spec-create">
+  <div class="field-spec">
+    <div class="col-sm-3">
+      <input type="text" name="spec-name" class="form-control">
+    </div>
+    <div class="col-sm-9">
+      <input type="text" name="spec-value" class="form-control spec-value">
+      <button class="btn btn-default btn-delete-spec" name="btn-delete-spec">
+        <%= t ".delete" %>
+      </button>
+    </div>
+  </div>
+</span>
