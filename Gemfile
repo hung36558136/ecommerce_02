@@ -21,6 +21,7 @@ gem "awesome_nested_set"
 gem "paranoia", "~> 2.2"
 gem "kaminari"
 gem "the_sortable_tree", "~> 2.5.0"
+gem "omniauth-facebook"
 
 group :development, :test do
   gem "byebug", platform: :mri

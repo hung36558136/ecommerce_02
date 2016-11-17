@@ -7,6 +7,7 @@ en:
       about: "About"
       sign_up: "Sign Up"
       login: "Login"
+      login_with_facebook: "Login with Facebook"
   admin:
     index:
       category: "Category"
