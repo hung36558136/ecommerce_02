@@ -29,6 +29,10 @@
           <%= link_to t(".login"), new_user_session_path,
             class: "fa fa-sign-in" %>
         </li>
+        <li>
+          <%= link_to t(".login_with_facebook"), "/users/auth/facebook",
+            class: "fa fa-sign-in" %>
+        </li>
       <% end %>
     </ul>
   </div>
