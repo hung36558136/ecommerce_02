@@ -84,6 +84,7 @@ en:
         manufacturer: "Manufacturer"
         name: "Name"
         price: "Price"
+        image: "Image url"
         min: "Min price"
         max: "Max price"
         all: "All"
@@ -107,6 +108,7 @@ en:
         header_modal: "Edit product"
         name: "Name"
         price: "Price"
+        image: "Image url"
         category: "Category"
         manufacturer: "Manufacturer"
         specification: "Specification"
@@ -116,6 +118,9 @@ en:
         cancel: "Cancel"
       update:
         success: "true"
+  products:
+    show:
+      price: "Price: "
   validate:
     product:
       size:

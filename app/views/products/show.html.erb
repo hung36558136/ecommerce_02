@@ -1,0 +1,26 @@
+<div class="content-product">
+  <div class="col-md-6">
+    <img class="img-responsive" src="<%= @product.image %>">
+    <div class="rate-product"></div>
+  </div>
+  <div class="col-md-6 product-info">
+    <div class="col-md-12">
+      <h2><%= @product.name %></h2>
+    </div>
+    <div class="col-md-12">
+      <span class="product-price"><%= t(".price") << @product.price.to_s %></span>
+    </div>
+    <div class="col-md-12 specifications-info">
+      <% @product.specifications.each do |specification| %>
+        <div class="col-md-12">
+          <div class="col-md-4"><span><%= specification.name %></span></div>
+          <div class="col-md-8"><span><%= specification.value %></span></div>
+          <hr>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="content-product-comment">
+</div>
