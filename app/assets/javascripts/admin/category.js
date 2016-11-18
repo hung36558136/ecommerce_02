@@ -31,11 +31,11 @@ var category = {
       });
     });
   },
-  
+
   show_create_category_modal: function () {
     $('#md-create-category').modal();
   },
-  
+
   save_category: function () {
     var category = {
       parent_id: $('#category_select').val(),
@@ -55,7 +55,7 @@ var category = {
         }
       }, 'html');
   },
-  
+
   search_category: function () {
     $.get(I18n.t('js.url_admin_category'),
       {q: $('#tf-search-category').val()},
@@ -78,7 +78,7 @@ var category = {
         });
       }, 'html');
   },
-  
+
   show_sub_category: function (obj) {
     $(obj).hover(function () {
       $(obj).css('cursor', 'pointer');
@@ -93,7 +93,7 @@ var category = {
       }
     });
   },
-  
+
   show_modal_edit: function (obj) {
     var id = $(obj).attr('id');
     $('#md-edit-category-' + id).modal();

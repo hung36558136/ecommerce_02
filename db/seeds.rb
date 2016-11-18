@@ -25,3 +25,8 @@ end
 @manufacturer.save
 @manufacturer = Manufacturer.new name: "Sony"
 @manufacturer.save
+
+20.times do |i|
+  name = "Manufacturer#{i+1}"
+  Manufacturer.create!(name: name)
+end
