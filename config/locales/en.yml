@@ -198,6 +198,9 @@ en:
           " (we need your current password to confirm your changes)"
         symbol: "("
         watting: "Currently waiting confirmation for: "
+        profile: "Profile's"
+        update: "Update"
+        back: "Back"
     shared:
       links:
         forgot: "Forgot your password?"

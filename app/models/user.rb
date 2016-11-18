@@ -7,8 +7,9 @@ class User < ApplicationRecord
   has_many :suggest_products
   has_many :recently_products
 
-  validates :email, uniqueness: true
-  validates :email, presence: true, allow_blank: false
+  VALID_EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  validates :email, presence: true, uniqueness: true, allow_blank: false,
+    format: { with: VALID_EMAIL_REGEX }
 
   scope :filter_by_name, -> search do
     self.where("LOWER(first_name || ' ' || last_name) LIKE LOWER(?) \n
