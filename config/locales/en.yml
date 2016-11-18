@@ -13,6 +13,7 @@ en:
       category: "Category"
       user: "User"
       product: "Product"
+      manufacturer: "Manufacturer"
     categories:
       index:
         create: "Create"
@@ -71,6 +72,14 @@ en:
         cancel: "Cancel"
         update: "Update"
         linkavatar: "Link avatar:"
+      update:
+        update_success: "Update profile successed!"
+        update_failed: "Update profile failed!"
+        notexist: "User does not exsit!"
+      destroy:
+        notexist: "User does not exist!"
+        delete_success: "Delete user successed!"
+        delete_fail: "Delete user failed!"
     products:
       index:
         create: "Create"
@@ -118,6 +127,32 @@ en:
         cancel: "Cancel"
       update:
         success: "true"
+    manufacturers:
+      index:
+        search: "Search"
+        listmanufacturer: "Manufacturers"
+        placeholder_manufacturer: "Enter manufacturer's name"
+        index: "No."
+        name: "Name"
+        create_at: "Creat_at"
+        add: "Add"
+      manufacturer:
+        update: "Update"
+        edit: "Edit"
+        cancel: "Cancel"
+        manu: "Manufacturer"
+      create:
+        present: "Manufacturer has been exist, please add new manufacturer!"
+        save: "Add manufacturer failed!"
+        add_success: "Add manufacturer successed!"
+      update:
+        check: "Manufacturer does not exsit!"
+        update_success: "Update manufacturer successed!"
+        update_failed: "Update manufacturer failed!"
+      destroy:
+        check: "Manufacturer does not exist!"
+        delete_success: "Delete manufacturer successed!"
+        delete_fail: "Delete failed!"
   products:
     show:
       price: "Price: "

@@ -11,7 +11,7 @@
   color:white !important;
   text-align: center;
   font-size: 30px;
-  padding: 25px 50px;
+  padding: 13px 50px;
 }
 
 .modal-footer {
@@ -39,4 +39,39 @@
 
 #notice{
   display: none;
+}
+
+.btn-delete-user{
+  display: none;
+}
+
+.list_manufacturer{
+  margin-top: 100px;
+}
+
+.btn-delete-manufacturer{
+  display: none;
+}
+
+#tf-search-manufacturer{
+  width: 250px;
+  display: inline-block;
+  margin-left: 200px;
+}
+
+#btn-search-manufacturer{
+  float: right;
+  margin-right: 320px;
+}
+
+.btn-add-manu{
+  margin-left: 20px;
+}
+
+.action-manu{
+  margin-top: 20px;
+}
+
+.manu-name{
+  margin-bottom: 20px;
 }

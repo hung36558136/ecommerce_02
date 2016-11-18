@@ -1,17 +1,20 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable
-  
+
   has_many :comments
   has_many :orders
   has_many :suggest_products
   has_many :recently_products
-  
+
+  validates :email, uniqueness: true
+  validates :email, presence: true, allow_blank: false
+
   scope :filter_by_name, -> search do
     self.where("LOWER(first_name || ' ' || last_name) LIKE LOWER(?) \n
       or LOWER(email) LIKE LOWER(?)", "%#{search}%", "%#{search}%")
   end
-  
+
   class << self
     def from_omniauth auth
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

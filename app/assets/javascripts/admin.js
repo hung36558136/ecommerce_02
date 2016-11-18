@@ -21,4 +21,5 @@ $(document).on('turbolinks:load', function () {
   product.initialize();
   $.fn.modal.Constructor.prototype.enforceFocus = function () {
   };
+  manufacturer.initialize();
 });

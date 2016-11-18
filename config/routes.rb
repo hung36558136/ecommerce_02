@@ -6,9 +6,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "managers#index"
-    resources :managers, :categories, :users, :products
-    resource :users, :categories, :products
+    resources :managers, :categories, :users, :products, :manufacturers
+    resource :users, :categories, :products, :manufacturers
   end
-  
-  resources :products
 end
